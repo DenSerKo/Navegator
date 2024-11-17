@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <title>VegFinder — Поиск вегетарианских блюд</title>
+</head>
+<body>
+
+    <!-- Шапка сайта -->
+    <header>
+        <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+        <nav>
+            <ul id="menu">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/search/">Поиск</a></li>
+                <li><a href="/dishes/">Блюда</a></li>
+                <li><a href="/restaurants/">Рестораны</a></li>
+                <li><a href="/blog/">Блог</a></li>
+            </ul>
+        </nav>
+        <div class="logo">
+            NAVEGATOR
+        </div>
+        <div id="city">Кострома</div>
+    </header>
+
+    <!-- Основной контент -->
+    <main class="container">
+        <!-- Banner -->
+        <div id="banner">
+
+        </div>
+        <!-- Поисковая форма -->
+        <section class="search-section">
+            <form class="search-bar">
+                <input type="text" placeholder="Введите название блюда или ресторана...">
+                <select>
+                    <option value="">Выберите город</option>
+                    <option value="moscow">Москва</option>
+                    <option value="spb">Санкт-Петербург</option>
+                    <!-- Другие города -->
+                </select>
+                <button type="submit">Найти</button>
+            </form>
+        </section>
+
+        <!-- Популярные категории блюд -->
+        <section class="popular-categories">
+            <h2>Популярные категории</h2>
+            <div class="category-item">
+                <img src="https://loremflickr.com/320/240/salad,vegan/all" alt="Салаты">
+                <h3>Салаты</h3>
+            </div>
+            <div class="category-item">
+                <img src="https://loremflickr.com/320/240/main-course,vegan/all" alt="Основные блюда">
+                <h3>Основные блюда</h3>
+            </div>
+            <div class="category-item">
+                <img src="https://loremflickr.com/320/240/desserts,vegan/all" alt="Десерты">
+                <h3>Десерты</h3>
+            </div>
+            <div class="category-item">
+                <img src="https://loremflickr.com/320/240/drinks,glass/all" alt="Напитки">
+                <h3>Напитки</h3>
+            </div>
+        </section>
+
+        <!-- Популярные рестораны -->
+        <section class="popular-restaurants">
+            <h2>Популярные рестораны</h2>
+            <div class="restaurant-item">
+                <img src="https://loremflickr.com/320/240/restaurant1" alt="Ресторан 1">
+                <h3>Ресторан VegLife</h3>
+            </div>
+            <div class="restaurant-item">
+                <img src="https://loremflickr.com/320/240/restaurant2" alt="Ресторан 2">
+                <h3>Green Gourmet</h3>
+            </div>
+        </section>
+    </main>
+
+    <!-- Нижнее меню -->
+    <div id="bottom-menu">
+        <ul>
+            <li>Меню</li>
+            <li>Рестораны</li>
+            <li>Домой</li>
+            <li>Поиск</li>
+            <li>Избранное</li>
+        </ul>
+    </div>
+
+    <!-- Подвал сайта -->
+    <footer>
+        <p>&copy; 2024 VegFinder. Все права защищены.</p>
+        <p><a href="/about/">О нас</a> | <a href="/contact/">Контакты</a> | <a href="/terms/">Условия использования</a> | <a href="/privacy/">Политика конфиденциальности</a></p>
+    </footer>
+
+    <script>
+        $(document).ready(function() {
+            let menuToggle = $('#menu-toggle');
+            let menu = $('#menu');
+            menuToggle.click(function() {
+                if (menu.hasClass('active')) {
+                    menu.removeClass('active');
+                }
+                else {
+                    menu.addClass('active');
+                }
+            });
+        })
+    </script>
+</body>
+</html>

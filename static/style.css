@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Reset and base styles  */
+* {
+	padding: 0px;
+	margin: 0px;
+	border: none;
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Links */
+
+a, a:link, a:visited  {
+    text-decoration: none;
+}
+
+a:hover  {
+    text-decoration: none;
+}
+
+/* Common */
+
+aside, nav, footer, header, section, main {
+	display: block;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    font-size: inherit;
+	font-weight: inherit;
+}
+
+ul, ul li {
+	list-style: none;
+}
+
+img {
+	vertical-align: top;
+}
+
+img, svg {
+	max-width: 100%;
+	height: auto;
+}
+
+address {
+  font-style: normal;
+}
+
+/* Form */
+
+input, textarea, button, select {
+	font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+}
+
+input::-ms-clear {
+	display: none;
+}
+
+button, input[type="submit"] {
+    display: inline-block;
+    box-shadow: none;
+    background-color: transparent;
+    background: none;
+    cursor: pointer;
+}
+
+input:focus, input:active,
+button:focus, button:active {
+    outline: none;
+}
+
+button::-moz-focus-inner {
+	padding: 0;
+	border: 0;
+}
+
+label {
+	cursor: pointer;
+}
+
+legend {
+	display: block;
+}
+
+:root {
+    --main-bg-color: #f7fff2;
+    --main-color: #75a263;
+	--menu-font-color: #3f2718;
+}
+
+body {
+	margin: 0;
+	font-family: "Montserrat", system-ui;
+	font-weight: 300;
+	background: var(--main-bg-color);
+	font-size: 16px;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	padding: 0.5em 0;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 20px;
+}
+
+header, main, footer {
+}
+
+/* Стили для хедера */
+header {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-template-areas: 'toggle logo city';
+	color: white;
+	align-items: center;
+	position: absolute;
+	padding: 1em;
+	z-index: 1000;
+	width: 100%;
+}
+
+.logo {
+	font-size: 1rem;
+	grid-area: logo;
+	justify-self: center;
+}
+
+.menu-toggle {
+	display: none;
+	font-size: 2em;
+	cursor: pointer;
+	grid-area: toggle;
+	justify-self: left;
+}
+
+#city {
+	grid-area: city;
+	justify-self: right;
+}
+
+nav ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	gap: 15px;
+}
+
+nav ul li {
+	display: inline;
+}
+
+nav ul li a {
+	color: white;
+	text-decoration: none;
+}
+
+
+/* Banner style */
+#banner {
+	height: 100dvh;
+	background: url(https://images.unsplash.com/photo-1540914124281-342587941389?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80) no-repeat center center / cover;
+}
+
+#banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+/* Стили для поисковой формы */
+.search-bar {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.search-bar input, .search-bar select {
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+}
+
+.search-bar button {
+	padding: 10px;
+	background-color: #4caf50;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.search-bar button:hover {
+	background-color: #45a049;
+}
+
+/* Стили для популярных категорий и ресторанов */
+.popular-categories, .popular-restaurants {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 10px;
+}
+
+.category-item, .restaurant-item {
+	background-color: white;
+	border-radius: 5px;
+	padding: 15px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	text-align: center;
+}
+
+.category-item img, .restaurant-item img {
+	max-width: 100%;
+	border-radius: 5px;
+}
+
+.category-item h3, .restaurant-item h3 {
+	margin-top: 10px;
+	font-size: 1.1em;
+}
+
+/* Bottom menu styles */
+#bottom-menu {
+	background-color: var(--main-color);
+	color: var(--menu-font-color);
+	font-weight: 400;
+	padding: 0 2em;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 60px;
+	align-content: center;
+}
+
+#bottom-menu ul {
+	display: flex;
+	justify-content: space-between;
+	font-size: .7rem;
+}
+
+/* Стили для футера */
+footer {
+	text-align: center;
+	font-size: 0.9em;
+	background-color: #333;
+	color: white;
+	padding: 1em 2em 70px;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+	.popular-categories, .popular-restaurants {
+		grid-template-columns: 1fr;
+	}
+
+	.search-bar {
+		flex-direction: column;
+	}
+
+	header nav ul {
+		flex-direction: column;
+		gap: 5px;
+	}
+	nav ul {
+		display: none;
+		flex-direction: column;
+		background-color: #4caf50;
+		position: absolute;
+		top: 60px;
+		left: 0;
+		width: 100%;
+		padding: 0;
+	}
+
+	nav ul li {
+		text-align: center;
+		border-bottom: 1px solid #fff;
+	}
+
+	/* Показ иконки гамбургера */
+	.menu-toggle {
+		display: block;
+	}
+
+	/* Активное меню */
+	nav ul.active {
+		display: flex;
+	}
+}
