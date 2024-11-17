@@ -90,7 +90,7 @@ if DEBUG:
 else:
     DATABASES = {
         'default': dj_database_url.config(
-            default='postgresql://postgres:postgres@localhost:5432/navegator',
+            default='postgresql://denserko:8fKTezRfVxSRsBnGbQ9jc2LsHmkyAP74@dpg-cssspaa3esus739q0jlg-a/navegator',
             conn_max_age=600
         )
     }
