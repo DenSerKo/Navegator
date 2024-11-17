@@ -1,3 +1,4 @@
+import dj_database_url
 """
 Django settings for Navegator project.
 
@@ -23,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-qoknm8+21k0(j_7!1!%ymaw#jzea2@lcrdh_77@q_f-yi=pu#&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['navegator.onrender.com']
 
 
 # Application definition
@@ -73,17 +74,24 @@ WSGI_APPLICATION = 'Navegator.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',  # Драйвер для psycopg 3
-        'NAME': 'navegator',
-        'USER': 'postgres',
-        'PASSWORD': 'd1e2n3i4s5',
-        'HOST': '127.0.0.1',
-        'PORT': '5432',
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',  # Драйвер для psycopg 3
+            'NAME': 'navegator',
+            'USER': 'postgres',
+            'PASSWORD': 'd1e2n3i4s5',
+            'HOST': '127.0.0.1',
+            'PORT': '5432',
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': dj_database_url.config(
+            default='postgresql://postgres:postgres@localhost:5432/navegator',
+            conn_max_age=600
+        )
+    }
 
 
 # Password validation
