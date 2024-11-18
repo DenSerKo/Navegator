@@ -263,12 +263,12 @@ nav ul li a {
 #bottom-menu {
 	background-color: var(--bottom-menu-color);
 	color: var(--menu-font-color);
-	padding: 0 2em;
+	padding: 1em 2em;
 	position: fixed;
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	height: 60px;
+	/*height: 60px;*/
 	align-content: center;
 }
 
