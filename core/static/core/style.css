@@ -91,9 +91,11 @@ legend {
 }
 
 :root {
-    --main-bg-color: #f7fff2;
+    --main-bg-color: #CBCFA8;
     --main-color: #75a263;
 	--menu-font-color: #3f2718;
+	--header-bg-color: rgba(41, 33, 6, .7);
+	--bottom-menu-color: rgba(124, 136, 35, .5)
 }
 
 body {
@@ -109,6 +111,12 @@ h1, h2, h3 {
 	padding: 0.5em 0;
 }
 
+i[class^="fa-solid"] {
+	font-size: 1.2rem;
+	color: white;
+	cursor: pointer;
+}
+
 .container {
 	display: grid;
 	grid-template-columns: 1fr;
@@ -122,13 +130,14 @@ header, main, footer {
 header {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	grid-template-areas: 'toggle logo city';
+	grid-template-areas: 'toggle logo profile';
 	color: white;
 	align-items: center;
 	position: absolute;
 	padding: 1em;
 	z-index: 1000;
 	width: 100%;
+	background-color: var(--header-bg-color);
 }
 
 .logo {
@@ -139,14 +148,14 @@ header {
 
 .menu-toggle {
 	display: none;
-	font-size: 2em;
 	cursor: pointer;
 	grid-area: toggle;
 	justify-self: left;
 }
 
-#city {
-	grid-area: city;
+#profile {
+	cursor: pointer;
+	grid-area: profile;
 	justify-self: right;
 }
 
@@ -171,7 +180,7 @@ nav ul li a {
 /* Banner style */
 #banner {
 	height: 100dvh;
-	background: url(https://images.unsplash.com/photo-1540914124281-342587941389?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1920&q=80) no-repeat center center / cover;
+	background: url('/static/core/img/heroBg.jpg') no-repeat center center / cover;
 }
 
 #banner::before {
@@ -237,9 +246,8 @@ nav ul li a {
 
 /* Bottom menu styles */
 #bottom-menu {
-	background-color: var(--main-color);
+	background-color: var(--bottom-menu-color);
 	color: var(--menu-font-color);
-	font-weight: 400;
 	padding: 0 2em;
 	position: fixed;
 	bottom: 0;
