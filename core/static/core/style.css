@@ -98,12 +98,13 @@ legend {
 	--bottom-menu-color: rgba(124, 136, 35, .5);
 	--search-button-color: #A28860;
 	--search-button-text-color: #181A09;
+	--heading-color: #393d1d;
 }
 
 body {
 	margin: 0;
-	font-family: "Montserrat", system-ui;
-	font-weight: 300;
+	font-family: "Philosopher", sans-serif;
+  	font-style: normal;
 	background: var(--main-bg-color);
 	font-size: 16px;
 }
@@ -114,6 +115,16 @@ h1, h2, h3 {
 	font-family: "Oranienbaum", serif;
   	font-weight: 400;
   	font-style: normal;
+	color: var(--heading-color);
+	text-align: center;
+}
+
+h2 {
+	font-size: 2.5rem;
+}
+
+h3 {
+	font-size: 2.25rem;
 }
 
 i[class^="fa-solid"] {
@@ -198,7 +209,7 @@ nav ul li a {
   	font-optical-sizing: auto;
   	font-style: normal;
 	padding: 1em 2em;
-	margin-top: 10em;
+	margin-top: 5em;
 	width: fit-content;
 	border-radius: 50px;
 }
@@ -213,7 +224,7 @@ nav ul li a {
 /*    background: rgba(0, 0, 0, 0.5);*/
 /*}*/
 
-.hero-text p {
+.hero-text h1 {
 	color: #C0A479;
 	font-family: "Philosopher", sans-serif;
   	font-weight: bold;
@@ -221,8 +232,61 @@ nav ul li a {
 	text-align: center;
 	font-size: 3rem;
 	text-shadow: 2px 2px 5px black;
-	margin-top: 3em;
+	/*margin-top: 3em;*/
 }
+
+.advantages {
+	display: flex;
+}
+
+.advantage {
+	background: #E0D3BF;
+	padding: 2em;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 21px 20px 0px rgba(34, 60, 80, 0.3);
+	-moz-box-shadow: 0px 21px 20px 0px rgba(34, 60, 80, 0.3);
+	box-shadow: 0px 21px 20px 0px rgba(34, 60, 80, 0.3);
+}
+
+.advantage p {
+	font-size: 1.5rem;
+	color: black;
+	line-height: 1.4;
+	text-align: center;
+}
+
+
+.carousel {
+  overflow: hidden; /* Скрывает элементы за пределами области */
+  width: 100%; /* Ширина карусели */
+}
+
+.carousel-track {
+  display: flex; /* Горизонтальное размещение элементов */
+  gap: 10px; /* Расстояние между элементами */
+  transition: transform 0.3s ease-in-out; /* Анимация сдвига */
+  position: relative; /* Для ограничений движения */
+}
+
+.carousel-item {
+  flex: 0 0 80%; /* Ширина элемента (например, 80%) */
+  background: #ccc;
+  border: 1px solid #999;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 24px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Адаптивность для маленьких экранов */
+@media (max-width: 768px) {
+  .carousel-item {
+    flex: 0 0 100%; /* На маленьких экранах элементы занимают 100% ширины */
+  }
+}
+
+
 
 /* Стили для поисковой формы */
 .search-bar {

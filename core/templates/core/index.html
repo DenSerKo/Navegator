@@ -33,10 +33,44 @@
         <!-- Banner -->
         <div id="banner">
             <div class="hero-text">
-                <p>Найдите вегетарианские блюда в любом ресторане</p>
+                <h1>Найдите вегетарианские блюда в любом ресторане</h1>
             </div>
             <button class="search-button">Начать поиск</button>
         </div>
+        <!-- Advantages -->
+        <section class="advantages">
+            <h2>Почему NAVEGATOR?</h2>
+            <div class="advantage">
+                <h3>Широкий выбор</h3>
+                <p>Мы собрали информацию о вегетарианских опциях в сотнях ресторанов.</p>
+            </div>
+            <div class="advantage">
+                <h3>Отзывы пользователей</h3>
+                <p>Читайте отзывы от других вегетарианцев о блюдах и ресторанах.</p>
+            </div>
+            <div class="advantage">
+                <h3>Удобный поиск</h3>
+                <p>Находите рестораны с вегетарианскими опциями рядом с вами.</p>
+            </div>
+        </section>
+
+        <div class="carousel">
+          <div class="carousel-track">
+            <div class="carousel-item">
+                <h3>Широкий выбор</h3>
+                <p>Мы собрали информацию о вегетарианских опциях в сотнях ресторанов.</p>
+            </div>
+            <div class="carousel-item">
+                <h3>Отзывы пользователей</h3>
+                <p>Читайте отзывы от других вегетарианцев о блюдах и ресторанах.</p>
+            </div>
+            <div class="carousel-item">
+                <h3>Удобный поиск</h3>
+                <p>Находите рестораны с вегетарианскими опциями рядом с вами.</p>
+            </div>
+          </div>
+        </div>
+
         <!-- Поисковая форма -->
         <section class="search-section">
             <form class="search-bar">
@@ -116,6 +150,45 @@
                 }
             });
         })
+        $(document).ready(function () {
+          const $carouselTrack = $('.carousel-track');
+          const $carouselItems = $('.carousel-item');
+          let startX = 0; // Начальная позиция касания
+          let currentTranslate = 0; // Текущее смещение
+          let maxTranslate = 0; // Лимит сдвига влево
+          let minTranslate = 0; // Лимит сдвига вправо
+          let isDragging = false;
+
+          // Рассчитаем пределы движения
+          const trackWidth = $carouselTrack[0].scrollWidth; // Общая ширина карусели
+          const containerWidth = $('.carousel').outerWidth(); // Видимая ширина
+          minTranslate = -(trackWidth - containerWidth); // Максимальный сдвиг влево
+
+          // Обработчики событий
+          $carouselTrack.on('touchstart', function (e) {
+            isDragging = true;
+            startX = e.originalEvent.touches[0].clientX;
+          });
+
+          $carouselTrack.on('touchmove', function (e) {
+            if (!isDragging) return;
+            const currentX = e.originalEvent.touches[0].clientX;
+            const movement = currentX - startX;
+            let newTranslate = currentTranslate + movement;
+
+            // Ограничим движение
+            newTranslate = Math.max(minTranslate, Math.min(maxTranslate, newTranslate));
+
+            $carouselTrack.css('transform', `translateX(${newTranslate}px)`);
+            currentTranslate = newTranslate; // Обновляем текущее положение
+            startX = currentX; // Обновляем начальную точку
+          });
+
+          $carouselTrack.on('touchend', function () {
+            isDragging = false;
+          });
+        });
+
     </script>
     <script src="https://kit.fontawesome.com/575d32bfa4.js" crossorigin="anonymous"></script>
 </body>
