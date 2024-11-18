@@ -95,7 +95,9 @@ legend {
     --main-color: #75a263;
 	--menu-font-color: #3f2718;
 	--header-bg-color: rgba(41, 33, 6, .7);
-	--bottom-menu-color: rgba(124, 136, 35, .5)
+	--bottom-menu-color: rgba(124, 136, 35, .5);
+	--search-button-color: #A28860;
+	--search-button-text-color: #181A09;
 }
 
 body {
@@ -184,8 +186,21 @@ nav ul li a {
 #banner {
 	display: grid;
 	align-content: center;
+	justify-items: center;
 	height: 100dvh;
-	background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/core/img/heroBg.jpg') no-repeat center center / cover;
+	background:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/core/img/heroBg.jpg') no-repeat center center / cover;
+}
+
+.search-button {
+	background: var(--search-button-color);
+	color: var(--search-button-text-color);
+	font-family: "Montserrat", serif;
+  	font-optical-sizing: auto;
+  	font-style: normal;
+	padding: 1em 2em;
+	margin-top: 10em;
+	width: fit-content;
+	border-radius: 50px;
 }
 
 /*#banner::before {*/
@@ -206,6 +221,7 @@ nav ul li a {
 	text-align: center;
 	font-size: 3rem;
 	text-shadow: 2px 2px 5px black;
+	margin-top: 3em;
 }
 
 /* Стили для поисковой формы */
