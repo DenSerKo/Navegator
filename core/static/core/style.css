@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oranienbaum&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 /* Reset and base styles  */
 * {
@@ -109,6 +109,9 @@ body {
 h1, h2, h3 {
 	margin: 0;
 	padding: 0.5em 0;
+	font-family: "Oranienbaum", serif;
+  	font-weight: 400;
+  	font-style: normal;
 }
 
 i[class^="fa-solid"] {
@@ -179,18 +182,30 @@ nav ul li a {
 
 /* Banner style */
 #banner {
+	display: grid;
+	align-content: center;
 	height: 100dvh;
-	background: url('/static/core/img/heroBg.jpg') no-repeat center center / cover;
+	background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/static/core/img/heroBg.jpg') no-repeat center center / cover;
 }
 
-#banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3);
+/*#banner::before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    top: 0;*/
+/*    left: 0;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    background: rgba(0, 0, 0, 0.5);*/
+/*}*/
+
+.hero-text p {
+	color: #C0A479;
+	font-family: "Philosopher", sans-serif;
+  	font-weight: bold;
+  	font-style: normal;
+	text-align: center;
+	font-size: 3rem;
+	text-shadow: 2px 2px 5px black;
 }
 
 /* Стили для поисковой формы */
@@ -260,6 +275,7 @@ nav ul li a {
 #bottom-menu ul {
 	display: flex;
 	justify-content: space-between;
+	align-content: center;
 	font-size: .7rem;
 }
 
