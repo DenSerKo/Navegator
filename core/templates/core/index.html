@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'core/style.css' %}">
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>VegFinder — Поиск вегетарианских блюд</title>
 </head>
 <body>
@@ -25,7 +24,7 @@
         <div class="logo">
             <img src="{% static 'core/img/logo.svg' %}" alt="NAVEGATOR">
         </div>
-        <div id="profile"><i class="fa-solid fa-user"></i></div>
+        <div class="profile"><i class="fa-solid fa-user"></i></div>
     </header>
 
     <!-- Основной контент -->
@@ -38,106 +37,63 @@
             <button class="search-button">Начать поиск</button>
         </div>
         <!-- Advantages -->
-        <section class="advantages">
+        <section class="slider advantages">
             <h2>Почему NAVEGATOR?</h2>
-            <div class="advantage">
-                <h3>Широкий выбор</h3>
-                <p>Мы собрали информацию о вегетарианских опциях в сотнях ресторанов.</p>
-            </div>
-            <div class="advantage">
-                <h3>Отзывы пользователей</h3>
-                <p>Читайте отзывы от других вегетарианцев о блюдах и ресторанах.</p>
-            </div>
-            <div class="advantage">
-                <h3>Удобный поиск</h3>
-                <p>Находите рестораны с вегетарианскими опциями рядом с вами.</p>
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <h3>Широкий выбор</h3>
+                        <p>Мы собрали информацию о вегетарианских опциях в сотнях ресторанов.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Отзывы пользователей</h3>
+                        <p>Читайте отзывы от других вегетарианцев о блюдах и ресторанах.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <h3>Удобный поиск</h3>
+                        <p>Находите рестораны с вегетарианскими опциями рядом с вами.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <div class="carousel">
-          <div class="carousel-track">
-            <div class="carousel-item">
-                <h3>Широкий выбор</h3>
-                <p>Мы собрали информацию о вегетарианских опциях в сотнях ресторанов.</p>
+        <section class="slider steps">
+            <h2>Как это работает</h2>
+            <div class="carousel">
+                <div class="carousel-track">
+                    <div class="carousel-item">
+                        <div class="number">1</div>
+                        <h3>Поиск</h3>
+                        <p>Введите название города или используйте геолокацию для поиска ресторанов.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="number">2</div>
+                        <h3>Выбор</h3>
+                        <p>Просмотрите список ресторанов с вегетарианскими опциями и их меню.</p>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="number">3</div>
+                        <h3>Наслаждайтесь</h3>
+                        <p>Посетите выбранный ресторан и насладитесь вкусной вегетарианской едой!</p>
+                    </div>
+                </div>
             </div>
-            <div class="carousel-item">
-                <h3>Отзывы пользователей</h3>
-                <p>Читайте отзывы от других вегетарианцев о блюдах и ресторанах.</p>
-            </div>
-            <div class="carousel-item">
-                <h3>Удобный поиск</h3>
-                <p>Находите рестораны с вегетарианскими опциями рядом с вами.</p>
-            </div>
-          </div>
+        </section>
+
+        <!-- Нижнее меню -->
+        <div id="bottom-menu">
+            <ul>
+                <li><i class="fa-solid fa-utensils"></i></li>
+                <li><i class="fa-solid fa-map-location-dot"></i></li>
+                <li><i class="fa-solid fa-house"></i></li>
+                <li><i class="fa-solid fa-magnifying-glass"></i></li>
+                <li><i class="fa-solid fa-heart"></i></li>
+            </ul>
         </div>
-
-        <!-- Поисковая форма -->
-        <section class="search-section">
-            <form class="search-bar">
-                <input type="text" placeholder="Введите название блюда или ресторана...">
-                <select>
-                    <option value="">Выберите город</option>
-                    <option value="moscow">Москва</option>
-                    <option value="spb">Санкт-Петербург</option>
-                    <!-- Другие города -->
-                </select>
-                <button type="submit">Найти</button>
-            </form>
-        </section>
-
-        <!-- Популярные категории блюд -->
-        <section class="popular-categories">
-            <h2>Популярные категории</h2>
-            <div class="category-item">
-                <img src="https://loremflickr.com/320/240/salad,vegan/all" alt="Салаты">
-                <h3>Салаты</h3>
-            </div>
-            <div class="category-item">
-                <img src="https://loremflickr.com/320/240/main-course,vegan/all" alt="Основные блюда">
-                <h3>Основные блюда</h3>
-            </div>
-            <div class="category-item">
-                <img src="https://loremflickr.com/320/240/desserts,vegan/all" alt="Десерты">
-                <h3>Десерты</h3>
-            </div>
-            <div class="category-item">
-                <img src="https://loremflickr.com/320/240/drinks,glass/all" alt="Напитки">
-                <h3>Напитки</h3>
-            </div>
-        </section>
-
-        <!-- Популярные рестораны -->
-        <section class="popular-restaurants">
-            <h2>Популярные рестораны</h2>
-            <div class="restaurant-item">
-                <img src="https://loremflickr.com/320/240/restaurant1" alt="Ресторан 1">
-                <h3>Ресторан VegLife</h3>
-            </div>
-            <div class="restaurant-item">
-                <img src="https://loremflickr.com/320/240/restaurant2" alt="Ресторан 2">
-                <h3>Green Gourmet</h3>
-            </div>
-        </section>
     </main>
-
-    <!-- Нижнее меню -->
-    <div id="bottom-menu">
-        <ul>
-            <li><i class="fa-solid fa-utensils"></i></li>
-            <li><i class="fa-solid fa-map-location-dot"></i></li>
-            <li><i class="fa-solid fa-house"></i></li>
-            <li><i class="fa-solid fa-magnifying-glass"></i></li>
-            <li><i class="fa-solid fa-heart"></i></li>
-        </ul>
-    </div>
-
-    <!-- Подвал сайта -->
-    <footer>
-        <p>&copy; 2024 VegFinder. Все права защищены.</p>
-        <p><a href="/about/">О нас</a> | <a href="/contact/">Контакты</a> | <a href="/terms/">Условия использования</a> | <a href="/privacy/">Политика конфиденциальности</a></p>
-    </footer>
-
-    <script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/575d32bfa4.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
         $(document).ready(function() {
             let menuToggle = $('#menu-toggle');
             let menu = $('#menu');
@@ -149,47 +105,49 @@
                     menu.addClass('active');
                 }
             });
-        })
-        $(document).ready(function () {
-          const $carouselTrack = $('.carousel-track');
-          const $carouselItems = $('.carousel-item');
-          let startX = 0; // Начальная позиция касания
-          let currentTranslate = 0; // Текущее смещение
-          let maxTranslate = 0; // Лимит сдвига влево
-          let minTranslate = 0; // Лимит сдвига вправо
-          let isDragging = false;
-
-          // Рассчитаем пределы движения
-          const trackWidth = $carouselTrack[0].scrollWidth; // Общая ширина карусели
-          const containerWidth = $('.carousel').outerWidth(); // Видимая ширина
-          minTranslate = -(trackWidth - containerWidth); // Максимальный сдвиг влево
-
-          // Обработчики событий
-          $carouselTrack.on('touchstart', function (e) {
-            isDragging = true;
-            startX = e.originalEvent.touches[0].clientX;
-          });
-
-          $carouselTrack.on('touchmove', function (e) {
-            if (!isDragging) return;
-            const currentX = e.originalEvent.touches[0].clientX;
-            const movement = currentX - startX;
-            let newTranslate = currentTranslate + movement;
-
-            // Ограничим движение
-            newTranslate = Math.max(minTranslate, Math.min(maxTranslate, newTranslate));
-
-            $carouselTrack.css('transform', `translateX(${newTranslate}px)`);
-            currentTranslate = newTranslate; // Обновляем текущее положение
-            startX = currentX; // Обновляем начальную точку
-          });
-
-          $carouselTrack.on('touchend', function () {
-            isDragging = false;
-          });
         });
-
     </script>
-    <script src="https://kit.fontawesome.com/575d32bfa4.js" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            const $carouselTrack = $('.carousel-track');
+            const $carouselItems = $('.carousel-item');
+            console.log($carouselItems);
+            let startX = 0; // Начальная позиция касания
+            let currentTranslate = 0; // Текущее смещение
+            let maxTranslate = 0; // Лимит сдвига влево
+            let minTranslate = 0; // Лимит сдвига вправо
+            let isDragging = false;
+
+            // Рассчитаем пределы движения
+            const trackWidth = $carouselTrack[0].scrollWidth; // Общая ширина карусели
+            const containerWidth = $('.carousel').outerWidth(); // Видимая ширина
+            minTranslate = -(trackWidth - containerWidth); // Максимальный сдвиг влево
+
+            // Обработчики событий
+            $carouselTrack.on('touchstart', function (e) {
+                console.log('Hello');
+                isDragging = true;
+                startX = e.originalEvent.touches[0].clientX;
+            });
+
+            $carouselTrack.on('touchmove', function (e) {
+                if (!isDragging) return;
+                const currentX = e.originalEvent.touches[0].clientX;
+                const movement = currentX - startX;
+                let newTranslate = currentTranslate + movement;
+
+                // Ограничим движение
+                newTranslate = Math.max(minTranslate, Math.min(maxTranslate, newTranslate));
+
+                $carouselTrack.css('transform', `translateX(${newTranslate}px)`);
+                currentTranslate = newTranslate; // Обновляем текущее положение
+                startX = currentX; // Обновляем начальную точку
+            });
+
+            $carouselTrack.on('touchend', function () {
+            isDragging = false;
+            });
+        });
+    </script>
 </body>
 </html>

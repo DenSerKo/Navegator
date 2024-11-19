@@ -136,7 +136,6 @@ i[class^="fa-solid"] {
 .container {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-gap: 20px;
 }
 
 header, main, footer {
@@ -157,7 +156,6 @@ header {
 }
 
 .logo {
-	font-size: 1rem;
 	grid-area: logo;
 	justify-self: center;
 }
@@ -169,7 +167,7 @@ header {
 	justify-self: left;
 }
 
-#profile {
+.profile {
 	cursor: pointer;
 	grid-area: profile;
 	justify-self: right;
@@ -235,11 +233,25 @@ nav ul li a {
 	/*margin-top: 3em;*/
 }
 
-.advantages {
-	display: flex;
+.slider {
+	overflow: hidden;
 }
 
-.advantage {
+.carousel {
+	overflow: hidden; /* Скрывает элементы за пределами области */
+	width: 100%; /* Ширина карусели */
+}
+
+.carousel-track {
+	display: flex; /* Горизонтальное размещение элементов */
+	gap: 20px; /* Расстояние между элементами */
+	transition: transform 0.3s ease-in-out; /* Анимация сдвига */
+	position: relative; /* Для ограничений движения */
+	padding-bottom: 3em;
+}
+
+.advantages .carousel-item {
+	flex: 0 0 80%;
 	background: #E0D3BF;
 	padding: 2em;
 	border-radius: 10px;
@@ -248,45 +260,12 @@ nav ul li a {
 	box-shadow: 0px 21px 20px 0px rgba(34, 60, 80, 0.3);
 }
 
-.advantage p {
+.carousel-item p {
 	font-size: 1.5rem;
 	color: black;
 	line-height: 1.4;
 	text-align: center;
 }
-
-
-.carousel {
-  overflow: hidden; /* Скрывает элементы за пределами области */
-  width: 100%; /* Ширина карусели */
-}
-
-.carousel-track {
-  display: flex; /* Горизонтальное размещение элементов */
-  gap: 10px; /* Расстояние между элементами */
-  transition: transform 0.3s ease-in-out; /* Анимация сдвига */
-  position: relative; /* Для ограничений движения */
-}
-
-.carousel-item {
-  flex: 0 0 80%; /* Ширина элемента (например, 80%) */
-  background: #ccc;
-  border: 1px solid #999;
-  border-radius: 8px;
-  text-align: center;
-  font-size: 24px;
-  padding: 20px;
-  box-sizing: border-box;
-}
-
-/* Адаптивность для маленьких экранов */
-@media (max-width: 768px) {
-  .carousel-item {
-    flex: 0 0 100%; /* На маленьких экранах элементы занимают 100% ширины */
-  }
-}
-
-
 
 /* Стили для поисковой формы */
 .search-bar {
