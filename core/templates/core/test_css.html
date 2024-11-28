@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'core/test_css.css' %}">
+    <title>Test CSS</title>
+</head>
+<body>
+    <header class="content-grid">
+        <div class="breakout header__layout">
+            <div>menu</div>
+            <div>logo</div>
+            <div>user</div>
+        </div>
+    </header>
+    <main class="content-grid">
+        <section>
+            <h2>Lorem ipsum dolor.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias quasi, repellat. Amet aperiam architecto
+                assumenda beatae blanditiis dolor facilis incidunt inventore, labore nesciunt officiis quas quasi rem
+                repellat ut? A.</p>
+            <p>Ad, dicta excepturi molestias non omnis porro possimus quis? Cupiditate delectus doloremque earum id nobis
+                placeat quasi quos reiciendis temporibus. Accusantium beatae dignissimos exercitationem impedit neque non
+                odit, officia voluptas.</p>
+        </section>
+        <div class="carousel-container full-width">
+            <div class="carousel">
+                <div class="carousel-item"><h3>Lorem ipsum dolor sit.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias amet at commodi corporis ex fuga
+                        incidunt inventore itaque, iusto mollitia numquam, officia omnis optio qui quibusdam quidem
+                        repellat velit. Voluptatum.</p></div>
+                <div class="carousel-item"><h3>Lorem ipsum dolor sit.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam autem beatae dicta doloremque
+                        eaque ex fugiat natus nostrum officia officiis, quidem ratione recusandae vero? Architecto
+                        deleniti deserunt ipsam magni sed.</p></div>
+                <div class="carousel-item"><h3>Lorem ipsum dolor sit.</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cumque dolores dolorum, eaque eos
+                        id inventore maxime molestiae necessitatibus neque officiis porro ratione, reiciendis rem rerum
+                        soluta ullam vitae voluptate!</p></div>
+            </div>
+        </div>
+        <section>
+            <h2>Lorem ipsum dolor sit.</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A alias atque, aut consequuntur cumque illo
+                ipsam iure labore maxime perferendis, placeat quas reiciendis reprehenderit. A fugiat fugit laborum odit
+                quisquam?</p>
+            <p>Aperiam architecto atque beatae commodi cum delectus deserunt, error esse excepturi facere iste, labore
+                molestiae molestias nam necessitatibus non perspiciatis praesentium quasi repellat vero. Architecto
+                atque illum quos sapiente voluptates.</p>
+            <p>Adipisci illo, nam obcaecati perferendis quaerat quis suscipit veniam! Alias consequatur deserunt dolore
+                dolorum et facilis fugiat illo, iusto laudantium nam odio quo soluta vitae? Adipisci consectetur facilis
+                itaque quae.</p>
+            <p>Dolores doloribus ea est explicabo, illo iste laboriosam magnam mollitia nam placeat quam quod recusandae
+                reiciendis similique sunt, totam velit voluptas voluptatibus! Ad beatae facere nemo nesciunt placeat
+                provident recusandae.</p>
+        </section>
+    </main>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            /*let rotatingBlock = $('.rotating-block');
+            let element = document.querySelector('.rotating-container');
+            let beforeStyles = window.getComputedStyle(element, '::before');
+            console.log(beforeStyles);
+            $(window).scroll(function() {
+                let scrollTop = $(window).scrollTop();
+                let angle = scrollTop % 360 - scrollTop/1.4;
+                rotatingBlock.css('transform', `rotate(${angle}deg)`);
+                document.documentElement.style.setProperty('--angle', `${angle}deg`);
+                //float.css('transform', `rotate(${angle}deg)`)
+                  //  .css('top', scrollTop - scrollTop/1.5 + 'px')
+                    //.css('left', scrollTop - scrollTop/1.5 + 'px');
+            });*/
+
+            /*let currentIndex = 0; // Текущий индекс элемента
+            const totalItems = $('.carousel-item').length; // Общее количество элементов
+            const carouselWidth = $('.carousel-container').width(); // Ширина контейнера
+            let startX = 0; // Начальная позиция свайпа
+
+            // Функция обновления карусели
+            function updateCarousel() {
+                const offset = -currentIndex * carouselWidth; // Смещение влево
+                $('.carousel').css('transform', `translateX(${offset}px)`); // Сдвигаем ленту
+            }
+
+            // Событие начала свайпа
+            $('.carousel-container').on('touchstart', function (event) {
+                startX = event.touches[0].clientX; // Запоминаем начальную позицию по оси X
+            });
+
+            // Событие окончания свайпа
+            $('.carousel-container').on('touchend', function (event) {
+                const endX = event.changedTouches[0].clientX; // Позиция пальца при завершении свайпа
+                const diffX = startX - endX; // Разница между начальной и конечной позицией
+
+                // Свайп влево (следующий слайд)
+                if (diffX > 50) {
+                    currentIndex = (currentIndex + 1) % totalItems; // Переход к следующему элементу
+                }
+                // Свайп вправо (предыдущий слайд)
+                else if (diffX < -50) {
+                    currentIndex = (currentIndex - 1 + totalItems) % totalItems; // Переход к предыдущему элементу
+                }
+
+                updateCarousel(); // Обновляем карусель
+            });
+
+        })*/
+    </script>
+</body>
+</html>
