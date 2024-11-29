@@ -1,5 +1,5 @@
 .content-grid {
-  --padding-inline: 70px;
+  --padding-inline: 20px;
   --content-max-width: 900px;
   --breakout-max-width: 1200px;
 
@@ -44,6 +44,14 @@
   padding: 0;
 }
 
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 1.2em;
+}
+
+p {
+    margin-bottom: 1em;
+}
+
 body {
   font: 16px system-ui;
   color: #2c2c2c;
@@ -60,12 +68,12 @@ header {
 }
 
 .carousel-container {
-    min-width: 300px; /* Ширина карусели */
+    grid-column: full-width !important;
     overflow-x: scroll; /* Горизонтальная прокрутка */
     scroll-snap-type: x mandatory; /* Привязка к элементам */
     scrollbar-width: none; /* Скрыть полосу прокрутки (для Firefox) */
     -ms-overflow-style: none; /* Скрыть полосу прокрутки (для IE и Edge) */
-    border: 1px solid #9d9d9d;
+    padding-top: 2em;
     padding-bottom: 4em;
 }
 
@@ -77,17 +85,17 @@ header {
 /* Лента карусели */
 .carousel {
     display: flex;
-    gap: 2em;
+    gap: 20px;
 }
 
 /* Элементы карусели */
 .carousel-item {
-    min-width: 100%; /* Каждый элемент занимает всю ширину контейнера */
     text-align: center;
     -webkit-box-shadow: 0px 22px 33px 0px rgba(34, 60, 80, 0.2);
     -moz-box-shadow: 0px 22px 33px 0px rgba(34, 60, 80, 0.2);
     box-shadow: 0px 22px 33px 0px rgba(34, 60, 80, 0.2);
     scroll-snap-align: center; /* Привязка к центру при остановке прокрутки */
     border-radius: 5px;
-    padding: 1em 2em;
+    padding: 2em 3em;
+    background: #CBCFA8;
 }

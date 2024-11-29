@@ -25,7 +25,7 @@
                 placeat quasi quos reiciendis temporibus. Accusantium beatae dignissimos exercitationem impedit neque non
                 odit, officia voluptas.</p>
         </section>
-        <div class="carousel-container full-width">
+        <div class="carousel-container">
             <div class="carousel">
                 <div class="carousel-item"><h3>Lorem ipsum dolor sit.</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias amet at commodi corporis ex fuga
@@ -60,6 +60,17 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function() {
+            let itemWidth = $(window).width() - 20 * 2;
+            $('.carousel-item').each(function() {
+                $(this).css('flex', `0 0 ${itemWidth}px`);
+            });
+            $(window).resize(function() {
+                itemWidth = $(window).width() - 20 * 2;
+                $('.carousel-item').each(function() {
+                    $(this).css('flex', `0 0 ${itemWidth}px`);
+                });
+            });
+
             /*let rotatingBlock = $('.rotating-block');
             let element = document.querySelector('.rotating-container');
             let beforeStyles = window.getComputedStyle(element, '::before');
@@ -105,9 +116,8 @@
                 }
 
                 updateCarousel(); // Обновляем карусель
-            });
-
-        })*/
+            });*/
+        })
     </script>
 </body>
 </html>
