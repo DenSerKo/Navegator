@@ -99,14 +99,56 @@ legend {
 	--search-button-color: #A28860;
 	--search-button-text-color: #181A09;
 	--heading-color: #393d1d;
+	--basic-font-size: 16px;
+}
+
+.content-grid {
+	--padding-inline: 20px;
+	--content-max-width: 900px;
+	--breakout-max-width: 1200px;
+
+	--breakout-size: calc(
+	(var(--breakout-max-width) - var(--content-max-width)) / 2
+	);
+
+	display: grid;
+	grid-template-columns:
+	[full-width-start] minmax(var(--padding-inline), 1fr)
+	[breakout-start] minmax(0, var(--breakout-size))
+	[content-start] min(
+	100% - (var(--padding-inline) * 2),
+	var(--content-max-width)
+	)
+	[content-end]
+	minmax(0, var(--breakout-size)) [breakout-end]
+	minmax(var(--padding-inline), 1fr) [full-width-end];
+}
+
+.content-grid > :not(.breakout, .full-width),
+.full-width > :not(.breakout, .full-width) {
+	grid-column: content;
+}
+
+.content-grid > .breakout {
+	grid-column: breakout;
+}
+
+.content-grid > .full-width {
+	grid-column: full-width;
+
+	display: grid;
+	grid-template-columns: inherit;
+}
+
+html {
+	background: var(--main-bg-color);
 }
 
 body {
 	margin: 0;
 	font-family: "Philosopher", sans-serif;
   	font-style: normal;
-	background: var(--main-bg-color);
-	font-size: 16px;
+	font-size: var(--basic-font-size);
 }
 
 h1, h2, h3 {
@@ -233,38 +275,85 @@ nav ul li a {
 	/*margin-top: 3em;*/
 }
 
-.slider {
-	overflow: hidden;
+.carousel-container {
+    grid-column: full-width !important;
+    overflow-x: scroll; /* Горизонтальная прокрутка */
+    scroll-snap-type: x mandatory; /* Привязка к элементам */
+    scrollbar-width: none; /* Скрыть полосу прокрутки (для Firefox) */
+    -ms-overflow-style: none; /* Скрыть полосу прокрутки (для IE и Edge) */
+    padding-top: 2em;
+    padding-bottom: 4em;
 }
 
+
+/* Скрыть полосу прокрутки для Chrome, Safari и других */
+.carousel-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Лента карусели */
 .carousel {
-	overflow: hidden; /* Скрывает элементы за пределами области */
-	width: 100%; /* Ширина карусели */
+    display: flex;
+    gap: 20px;
 }
 
-.carousel-track {
-	display: flex; /* Горизонтальное размещение элементов */
-	gap: 20px; /* Расстояние между элементами */
-	transition: transform 0.3s ease-in-out; /* Анимация сдвига */
-	position: relative; /* Для ограничений движения */
-	padding-bottom: 3em;
+/* Элементы карусели */
+.carousel-item {
+	padding: 2em;
+	border-radius: 10px;
 }
 
 .advantages .carousel-item {
-	flex: 0 0 80%;
-	background: #E0D3BF;
-	padding: 2em;
-	border-radius: 10px;
+    background: #E0D3BF;
 	-webkit-box-shadow: 0px 21px 20px 0px rgba(34, 60, 80, 0.3);
 	-moz-box-shadow: 0px 21px 20px 0px rgba(34, 60, 80, 0.3);
 	box-shadow: 0px 21px 20px 0px rgba(34, 60, 80, 0.3);
 }
 
+.no-inner-grid {
+	display: block !important;
+}
+
+.steps {
+	background: #424623;
+	height: 80%;
+}
+
+.steps h2 {
+	color: white;
+}
+
+.steps .carousel-item {
+	background: rgba(27, 29, 9, .7);
+	color: white;
+	text-align: center;
+	padding-bottom: 10em;
+}
+
+.steps .carousel-item h3 {
+	color: white;
+}
+
+.steps .carousel-item .number {
+	font-size: 3rem;
+	border: 2px solid white;
+	font-family: 'Oranienbaum';
+	text-align: center;
+	width: 80px;
+	height: 80px;
+	display: inline-block;
+	border-radius: 40px;
+	line-height: 80px;
+}
+
 .carousel-item p {
 	font-size: 1.5rem;
-	color: black;
 	line-height: 1.4;
 	text-align: center;
+}
+
+.advantages .carousel-item p {
+	color: black;
 }
 
 /* Стили для поисковой формы */

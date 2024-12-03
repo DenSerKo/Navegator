@@ -28,19 +28,19 @@
     </header>
 
     <!-- Основной контент -->
-    <main class="container">
+    <main class="content-grid">
         <!-- Banner -->
-        <div id="banner">
+        <div id="banner" class="full-width">
             <div class="hero-text">
                 <h1>Найдите вегетарианские блюда в любом ресторане</h1>
             </div>
             <button class="search-button">Начать поиск</button>
         </div>
         <!-- Advantages -->
-        <section class="slider advantages">
+        <section class="advantages full-width">
             <h2>Почему NAVEGATOR?</h2>
-            <div class="carousel">
-                <div class="carousel-track">
+            <div class="carousel-container">
+                <div class="carousel">
                     <div class="carousel-item">
                         <h3>Широкий выбор</h3>
                         <p>Мы собрали информацию о вегетарианских опциях в сотнях ресторанов.</p>
@@ -57,10 +57,10 @@
             </div>
         </section>
 
-        <section class="slider steps">
+        <section class="steps full-width no-inner-grid">
             <h2>Как это работает</h2>
-            <div class="carousel">
-                <div class="carousel-track">
+            <div class="carousel-container">
+                <div class="carousel">
                     <div class="carousel-item">
                         <div class="number">1</div>
                         <h3>Поиск</h3>
@@ -78,6 +78,25 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <section>
+            <h2>Dummy text</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cum debitis deleniti eius facilis fuga
+                fugit id laborum mollitia, nostrum numquam perspiciatis praesentium, provident rem repellat rerum saepe,
+                unde voluptates!</p>
+            <p>A alias dolorum sapiente temporibus voluptatum! Adipisci corporis delectus dolores ducimus eaque enim
+                explicabo fuga harum in ipsam minima nesciunt odio pariatur, provident quasi quisquam reprehenderit
+                sequi sit velit voluptatibus?</p>
+            <p>Animi commodi consectetur, distinctio et eum modi necessitatibus quod sequi similique tempora tenetur
+                voluptatum. Animi blanditiis cupiditate dicta dolore earum eveniet, id iste laborum laudantium nihil
+                obcaecati porro repellendus unde.</p>
+            <p>Amet corporis dolore doloribus esse est exercitationem nostrum quae quo quod reiciendis soluta
+                temporibus, unde voluptas. Amet autem cumque deleniti pariatur quibusdam! Blanditiis eligendi iste magni
+                maiores modi nobis quae.</p>
+            <p>Adipisci, atque dolorem facere odit placeat tempora unde ut voluptate. Accusantium, ad architecto autem
+                corporis culpa cumque cupiditate dolore ducimus fuga illum in, minus omnis, optio sequi unde ut
+                voluptatum.</p>
         </section>
 
         <!-- Нижнее меню -->
@@ -105,47 +124,16 @@
                     menu.addClass('active');
                 }
             });
-        });
-    </script>
-    <script type="text/javascript">
-        $(document).ready(function () {
-            const $carouselTrack = $('.carousel-track');
-            const $carouselItems = $('.carousel-item');
-            console.log($carouselItems);
-            let startX = 0; // Начальная позиция касания
-            let currentTranslate = 0; // Текущее смещение
-            let maxTranslate = 0; // Лимит сдвига влево
-            let minTranslate = 0; // Лимит сдвига вправо
-            let isDragging = false;
 
-            // Рассчитаем пределы движения
-            const trackWidth = $carouselTrack[0].scrollWidth; // Общая ширина карусели
-            const containerWidth = $('.carousel').outerWidth(); // Видимая ширина
-            minTranslate = -(trackWidth - containerWidth); // Максимальный сдвиг влево
-
-            // Обработчики событий
-            $carouselTrack.on('touchstart', function (e) {
-                console.log('Hello');
-                isDragging = true;
-                startX = e.originalEvent.touches[0].clientX;
+            let itemWidth = $(window).width() - 20 * 2;
+            $('.carousel-item').each(function() {
+                $(this).css('flex', `0 0 ${itemWidth}px`);
             });
-
-            $carouselTrack.on('touchmove', function (e) {
-                if (!isDragging) return;
-                const currentX = e.originalEvent.touches[0].clientX;
-                const movement = currentX - startX;
-                let newTranslate = currentTranslate + movement;
-
-                // Ограничим движение
-                newTranslate = Math.max(minTranslate, Math.min(maxTranslate, newTranslate));
-
-                $carouselTrack.css('transform', `translateX(${newTranslate}px)`);
-                currentTranslate = newTranslate; // Обновляем текущее положение
-                startX = currentX; // Обновляем начальную точку
-            });
-
-            $carouselTrack.on('touchend', function () {
-            isDragging = false;
+            $(window).resize(function() {
+                itemWidth = $(window).width() - 20 * 2;
+                $('.carousel-item').each(function() {
+                    $(this).css('flex', `0 0 ${itemWidth}px`);
+                });
             });
         });
     </script>
