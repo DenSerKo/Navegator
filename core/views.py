@@ -5,9 +5,9 @@ def index(request):
     return render(request, 'core/index.html')
 
 
-def test(request):
-    return render(request, 'core/test.html')
+def toggle_menu(request):
+    return render(request, 'core/toggle-menu.html')
 
 
-def test_css(request):
-    return render(request, 'core/test_css.html')
+def sandbox(request):
+    return render(request, 'core/sandbox.html')

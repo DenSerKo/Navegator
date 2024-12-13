@@ -1,141 +1,87 @@
+{% extends 'core/base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'core/style.css' %}">
-    <title>VegFinder — Поиск вегетарианских блюд</title>
-</head>
-<body>
-
-    <!-- Шапка сайта -->
-    <header>
-        <div class="menu-toggle" id="menu-toggle"><i class="fa-solid fa-bars"></i></div>
-        <nav>
-            <ul id="menu">
-                <li><a href="/">Главная</a></li>
-                <li><a href="/search/">Поиск</a></li>
-                <li><a href="/dishes/">Блюда</a></li>
-                <li><a href="/restaurants/">Рестораны</a></li>
-                <li><a href="/blog/">Блог</a></li>
-            </ul>
-        </nav>
-        <div class="logo">
-            <img src="{% static 'core/img/logo.svg' %}" alt="NAVEGATOR">
+{% block main %}
+    <!-- Hero -->
+    <div id="banner" class="full-width">
+        <div class="hero-text">
+            <h1>Найдите вегетарианские блюда в любом ресторане</h1>
         </div>
-        <div class="profile"><i class="fa-solid fa-user"></i></div>
-    </header>
-
-    <!-- Основной контент -->
-    <main class="content-grid">
-        <!-- Banner -->
-        <div id="banner" class="full-width">
-            <div class="hero-text">
-                <h1>Найдите вегетарианские блюда в любом ресторане</h1>
-            </div>
-            <button class="search-button">Начать поиск</button>
-        </div>
-        <!-- Advantages -->
-        <section class="advantages full-width">
-            <h2>Почему NAVEGATOR?</h2>
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="carousel-item">
-                        <h3>Широкий выбор</h3>
-                        <p>Мы собрали информацию о вегетарианских опциях в сотнях ресторанов.</p>
-                    </div>
-                    <div class="carousel-item">
-                        <h3>Отзывы пользователей</h3>
-                        <p>Читайте отзывы от других вегетарианцев о блюдах и ресторанах.</p>
-                    </div>
-                    <div class="carousel-item">
-                        <h3>Удобный поиск</h3>
-                        <p>Находите рестораны с вегетарианскими опциями рядом с вами.</p>
-                    </div>
+        <button class="search-button">Начать поиск</button>
+    </div>
+    <!-- Advantages -->
+    <section class="advantages full-width">
+        <h2>Почему NAVEGATOR?</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <h3>Широкий выбор</h3>
+                    <p>Мы собрали информацию о вегетарианских опциях в сотнях ресторанов.</p>
+                </div>
+                <div class="carousel-item">
+                    <h3>Отзывы пользователей</h3>
+                    <p>Читайте отзывы от других вегетарианцев о блюдах и ресторанах.</p>
+                </div>
+                <div class="carousel-item">
+                    <h3>Удобный поиск</h3>
+                    <p>Находите рестораны с вегетарианскими опциями рядом с вами.</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="steps full-width no-inner-grid">
-            <h2>Как это работает</h2>
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="carousel-item">
-                        <div class="number">1</div>
-                        <h3>Поиск</h3>
-                        <p>Введите название города или используйте геолокацию для поиска ресторанов.</p>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="number">2</div>
-                        <h3>Выбор</h3>
-                        <p>Просмотрите список ресторанов с вегетарианскими опциями и их меню.</p>
-                    </div>
-                    <div class="carousel-item">
-                        <div class="number">3</div>
-                        <h3>Наслаждайтесь</h3>
-                        <p>Посетите выбранный ресторан и насладитесь вкусной вегетарианской едой!</p>
-                    </div>
+    <section class="steps full-width no-inner-grid">
+        <h2>Как это работает</h2>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-item">
+                    <div class="number">1</div>
+                    <h3>Поиск</h3>
+                    <p>Введите название города или используйте геолокацию для поиска ресторанов.</p>
+                </div>
+                <div class="carousel-item">
+                    <div class="number">2</div>
+                    <h3>Выбор</h3>
+                    <p>Просмотрите список ресторанов с вегетарианскими опциями и их меню.</p>
+                </div>
+                <div class="carousel-item">
+                    <div class="number">3</div>
+                    <h3>Наслаждайтесь</h3>
+                    <p>Посетите выбранный ресторан и насладитесь вкусной вегетарианской едой!</p>
                 </div>
             </div>
-        </section>
-
-        <section>
-            <h2>Dummy text</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cum debitis deleniti eius facilis fuga
-                fugit id laborum mollitia, nostrum numquam perspiciatis praesentium, provident rem repellat rerum saepe,
-                unde voluptates!</p>
-            <p>A alias dolorum sapiente temporibus voluptatum! Adipisci corporis delectus dolores ducimus eaque enim
-                explicabo fuga harum in ipsam minima nesciunt odio pariatur, provident quasi quisquam reprehenderit
-                sequi sit velit voluptatibus?</p>
-            <p>Animi commodi consectetur, distinctio et eum modi necessitatibus quod sequi similique tempora tenetur
-                voluptatum. Animi blanditiis cupiditate dicta dolore earum eveniet, id iste laborum laudantium nihil
-                obcaecati porro repellendus unde.</p>
-            <p>Amet corporis dolore doloribus esse est exercitationem nostrum quae quo quod reiciendis soluta
-                temporibus, unde voluptas. Amet autem cumque deleniti pariatur quibusdam! Blanditiis eligendi iste magni
-                maiores modi nobis quae.</p>
-            <p>Adipisci, atque dolorem facere odit placeat tempora unde ut voluptate. Accusantium, ad architecto autem
-                corporis culpa cumque cupiditate dolore ducimus fuga illum in, minus omnis, optio sequi unde ut
-                voluptatum.</p>
-        </section>
-
-        <!-- Нижнее меню -->
-        <div id="bottom-menu">
-            <ul>
-                <li><i class="fa-solid fa-utensils"></i></li>
-                <li><i class="fa-solid fa-map-location-dot"></i></li>
-                <li><i class="fa-solid fa-house"></i></li>
-                <li><i class="fa-solid fa-magnifying-glass"></i></li>
-                <li><i class="fa-solid fa-heart"></i></li>
-            </ul>
         </div>
-    </main>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/575d32bfa4.js" crossorigin="anonymous"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            let menuToggle = $('#menu-toggle');
-            let menu = $('#menu');
-            menuToggle.click(function() {
-                if (menu.hasClass('active')) {
-                    menu.removeClass('active');
-                }
-                else {
-                    menu.addClass('active');
-                }
-            });
+    </section>
 
-            let itemWidth = $(window).width() - 20 * 2;
-            $('.carousel-item').each(function() {
-                $(this).css('flex', `0 0 ${itemWidth}px`);
-            });
-            $(window).resize(function() {
-                itemWidth = $(window).width() - 20 * 2;
-                $('.carousel-item').each(function() {
-                    $(this).css('flex', `0 0 ${itemWidth}px`);
-                });
-            });
-        });
-    </script>
-</body>
-</html>
+    <section>
+        <h2>Dummy text</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi cum debitis deleniti eius facilis fuga
+            fugit id laborum mollitia, nostrum numquam perspiciatis praesentium, provident rem repellat rerum saepe,
+            unde voluptates!</p>
+        <p>A alias dolorum sapiente temporibus voluptatum! Adipisci corporis delectus dolores ducimus eaque enim
+            explicabo fuga harum in ipsam minima nesciunt odio pariatur, provident quasi quisquam reprehenderit
+            sequi sit velit voluptatibus?</p>
+        <p>Animi commodi consectetur, distinctio et eum modi necessitatibus quod sequi similique tempora tenetur
+            voluptatum. Animi blanditiis cupiditate dicta dolore earum eveniet, id iste laborum laudantium nihil
+            obcaecati porro repellendus unde.</p>
+        <p>Amet corporis dolore doloribus esse est exercitationem nostrum quae quo quod reiciendis soluta
+            temporibus, unde voluptas. Amet autem cumque deleniti pariatur quibusdam! Blanditiis eligendi iste magni
+            maiores modi nobis quae.</p>
+        <p>Adipisci, atque dolorem facere odit placeat tempora unde ut voluptate. Accusantium, ad architecto autem
+            corporis culpa cumque cupiditate dolore ducimus fuga illum in, minus omnis, optio sequi unde ut
+            voluptatum.</p>
+    </section>
+
+    <!-- Bottom Nav-->
+    <div id="bottom-menu">
+        <ul>
+            <li><i class="fa-solid fa-utensils"></i></li>
+            <li><i class="fa-solid fa-map-location-dot"></i></li>
+            <li><i class="fa-solid fa-house"></i></li>
+            <li><i class="fa-solid fa-magnifying-glass"></i></li>
+            <li><i class="fa-solid fa-heart"></i></li>
+        </ul>
+    </div>
+{% endblock %}
+{% block script %}
+    <script type="text/javascript" src="{% static 'core/js.js' %}"></script>
+{% endblock %}

@@ -1,50 +1,49 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oranienbaum&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Oranienbaum&family=Philosopher:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 /* Reset and base styles  */
 * {
-	padding: 0px;
-	margin: 0px;
-	border: none;
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 
 *,
 *::before,
 *::after {
-	box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 /* Links */
-
-a, a:link, a:visited  {
-    text-decoration: none;
+a, a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
 }
 
-a:hover  {
-    text-decoration: none;
+a:hover {
+  text-decoration: none;
 }
 
 /* Common */
-
 aside, nav, footer, header, section, main {
-	display: block;
+  display: block;
 }
 
 h1, h2, h3, h4, h5, h6, p {
-    font-size: inherit;
-	font-weight: inherit;
+  font-size: inherit;
+  font-weight: inherit;
 }
 
 ul, ul li {
-	list-style: none;
+  list-style: none;
 }
 
 img {
-	vertical-align: top;
+  vertical-align: top;
 }
 
 img, svg {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 address {
@@ -52,206 +51,200 @@ address {
 }
 
 /* Form */
-
 input, textarea, button, select {
-	font-family: inherit;
-    font-size: inherit;
-    color: inherit;
-    background-color: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background-color: transparent;
 }
 
 input::-ms-clear {
-	display: none;
+  display: none;
 }
 
-button, input[type="submit"] {
-    display: inline-block;
-    box-shadow: none;
-    background-color: transparent;
-    background: none;
-    cursor: pointer;
+button, input[type=submit] {
+  display: inline-block;
+  box-shadow: none;
+  background-color: transparent;
+  background: none;
+  cursor: pointer;
 }
 
 input:focus, input:active,
 button:focus, button:active {
-    outline: none;
+  outline: none;
 }
 
 button::-moz-focus-inner {
-	padding: 0;
-	border: 0;
+  padding: 0;
+  border: 0;
 }
 
 label {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 legend {
-	display: block;
-}
-
-:root {
-    --main-bg-color: #CBCFA8;
-    --main-color: #75a263;
-	--menu-font-color: #3f2718;
-	--header-bg-color: rgba(41, 33, 6, .7);
-	--bottom-menu-color: rgba(124, 136, 35, .5);
-	--search-button-color: #A28860;
-	--search-button-text-color: #181A09;
-	--heading-color: #393d1d;
-	--basic-font-size: 16px;
+  display: block;
 }
 
 .content-grid {
-	--padding-inline: 20px;
-	--content-max-width: 900px;
-	--breakout-max-width: 1200px;
-
-	--breakout-size: calc(
-	(var(--breakout-max-width) - var(--content-max-width)) / 2
-	);
-
-	display: grid;
-	grid-template-columns:
-	[full-width-start] minmax(var(--padding-inline), 1fr)
-	[breakout-start] minmax(0, var(--breakout-size))
-	[content-start] min(
-	100% - (var(--padding-inline) * 2),
-	var(--content-max-width)
-	)
-	[content-end]
-	minmax(0, var(--breakout-size)) [breakout-end]
-	minmax(var(--padding-inline), 1fr) [full-width-end];
+  display: grid;
+  grid-template-columns: [full-width-start] minmax(20px, 1fr) [breakout-start] minmax(0, 150px) [content-start] min(100% - 40px, 900px) [content-end] minmax(0, 150px) [breakout-end] minmax(20px, 1fr) [full-width-end];
 }
 
 .content-grid > :not(.breakout, .full-width),
 .full-width > :not(.breakout, .full-width) {
-	grid-column: content;
+  grid-column: content;
 }
 
 .content-grid > .breakout {
-	grid-column: breakout;
+  grid-column: breakout;
 }
 
 .content-grid > .full-width {
-	grid-column: full-width;
+  grid-column: full-width;
+  display: grid;
+  grid-template-columns: inherit;
+}
 
-	display: grid;
-	grid-template-columns: inherit;
+img.full-width {
+  width: 100%;
+  max-height: 45vh;
+  object-fit: cover;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: "toggle logo profile";
+  color: #fff;
+  align-items: center;
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  padding: 1em 20px;
+  background-color: rgba(41, 33, 6, 0.7);
+}
+header .menu-toggle {
+  cursor: pointer;
+  grid-area: toggle;
+  justify-self: left;
+}
+header .logo {
+  grid-area: logo;
+  justify-self: center;
+}
+header .profile {
+  cursor: pointer;
+  grid-area: profile;
+  justify-self: right;
+}
+header nav {
+  background: rgba(41, 33, 6, 0.95);
+  position: fixed;
+  bottom: 0;
+  left: 10px;
+  right: 10px;
+  top: 10%;
+  border-radius: 10px 10px 0 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: transform 0.3s;
+  transform: translateY(100%);
+}
+header nav.active {
+  transform: translateY(0);
+}
+header nav a {
+  display: block;
+  border-bottom: 1px solid white;
+  padding: 2rem;
+  text-align: center;
+}
+header nav a:hover {
+  background: #ccc;
+}
+header nav .close-menu {
+  text-align: right;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+#bottom-menu {
+  background-color: rgba(124, 136, 35, 0.5);
+  color: #3f2718;
+  padding: 1em 2em;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /*height: 60px;*/
+  align-content: center;
+}
+#bottom-menu ul {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  font-size: 0.7rem;
 }
 
 html {
-	background: var(--main-bg-color);
+  background: #1f1e1a;
 }
 
 body {
-	margin: 0;
-	font-family: "Philosopher", sans-serif;
-  	font-style: normal;
-	font-size: var(--basic-font-size);
+  margin: 0;
+  font-family: "Philosopher", sans-serif;
+  font-style: normal;
+  font-size: 16px;
 }
 
 h1, h2, h3 {
-	margin: 0;
-	padding: 0.5em 0;
-	font-family: "Oranienbaum", serif;
-  	font-weight: 400;
-  	font-style: normal;
-	color: var(--heading-color);
-	text-align: center;
+  margin: 0;
+  padding: 0.5em 0;
+  font-family: "Oranienbaum", serif;
+  font-weight: 400;
+  font-style: normal;
+  color: #393d1d;
+  text-align: center;
 }
 
 h2 {
-	font-size: 2.5rem;
+  font-size: 2.5rem;
 }
 
 h3 {
-	font-size: 2.25rem;
+  font-size: 2.25rem;
 }
 
-i[class^="fa-solid"] {
-	font-size: 1.2rem;
-	color: white;
-	cursor: pointer;
+i[class^=fa-solid] {
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
 }
-
-.container {
-	display: grid;
-	grid-template-columns: 1fr;
-}
-
-header, main, footer {
-}
-
-/* Стили для хедера */
-header {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	grid-template-areas: 'toggle logo profile';
-	color: white;
-	align-items: center;
-	position: absolute;
-	padding: 1em;
-	z-index: 1000;
-	width: 100%;
-	background-color: var(--header-bg-color);
-}
-
-.logo {
-	grid-area: logo;
-	justify-self: center;
-}
-
-.menu-toggle {
-	display: none;
-	cursor: pointer;
-	grid-area: toggle;
-	justify-self: left;
-}
-
-.profile {
-	cursor: pointer;
-	grid-area: profile;
-	justify-self: right;
-}
-
-nav ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	gap: 15px;
-}
-
-nav ul li {
-	display: inline;
-}
-
-nav ul li a {
-	color: white;
-	text-decoration: none;
-}
-
 
 /* Banner style */
 #banner {
-	display: grid;
-	align-content: center;
-	justify-items: center;
-	height: 100dvh;
-	background:linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/static/core/img/heroBg.jpg') no-repeat center center / cover;
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  height: 100dvh;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/static/core/img/heroBg.jpg") no-repeat center center/cover;
 }
 
 .search-button {
-	background: var(--search-button-color);
-	color: var(--search-button-text-color);
-	font-family: "Montserrat", serif;
-  	font-optical-sizing: auto;
-  	font-style: normal;
-	padding: 1em 2em;
-	margin-top: 5em;
-	width: fit-content;
-	border-radius: 50px;
+  background: #A28860;
+  color: #181A09;
+  font-family: "Montserrat", serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  padding: 1em 2em;
+  margin-top: 5em;
+  width: fit-content;
+  border-radius: 50px;
 }
 
 /*#banner::before {*/
@@ -263,216 +256,148 @@ nav ul li a {
 /*    height: 100%;*/
 /*    background: rgba(0, 0, 0, 0.5);*/
 /*}*/
-
 .hero-text h1 {
-	color: #C0A479;
-	font-family: "Philosopher", sans-serif;
-  	font-weight: bold;
-  	font-style: normal;
-	text-align: center;
-	font-size: 3rem;
-	text-shadow: 2px 2px 5px black;
-	/*margin-top: 3em;*/
+  color: #C0A479;
+  font-family: "Philosopher", sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  text-align: center;
+  font-size: 3rem;
+  text-shadow: 2px 2px 5px black;
+  /*margin-top: 3em;*/
 }
 
 .carousel-container {
-    grid-column: full-width !important;
-    overflow-x: scroll; /* Горизонтальная прокрутка */
-    scroll-snap-type: x mandatory; /* Привязка к элементам */
-    scrollbar-width: none; /* Скрыть полосу прокрутки (для Firefox) */
-    -ms-overflow-style: none; /* Скрыть полосу прокрутки (для IE и Edge) */
-    padding-top: 2em;
-    padding-bottom: 4em;
+  grid-column: full-width !important;
+  overflow-x: scroll; /* Горизонтальная прокрутка */
+  scroll-snap-type: x mandatory; /* Привязка к элементам */
+  scrollbar-width: none; /* Скрыть полосу прокрутки (для Firefox) */
+  -ms-overflow-style: none; /* Скрыть полосу прокрутки (для IE и Edge) */
+  padding-top: 2em;
+  padding-bottom: 4em;
 }
-
 
 /* Скрыть полосу прокрутки для Chrome, Safari и других */
 .carousel-container::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 
 /* Лента карусели */
 .carousel {
-    display: flex;
-    gap: 20px;
+  display: flex;
+  gap: 20px;
 }
 
 /* Элементы карусели */
 .carousel-item {
-	padding: 2em;
-	border-radius: 10px;
+  padding: 2em;
+  border-radius: 10px;
 }
 
 .advantages .carousel-item {
-    background: #E0D3BF;
-	-webkit-box-shadow: 0px 21px 20px 0px rgba(34, 60, 80, 0.3);
-	-moz-box-shadow: 0px 21px 20px 0px rgba(34, 60, 80, 0.3);
-	box-shadow: 0px 21px 20px 0px rgba(34, 60, 80, 0.3);
+  background: #E0D3BF;
+  -webkit-box-shadow: 0px 21px 20px 0px rgba(34, 60, 80, 0.3);
+  -moz-box-shadow: 0px 21px 20px 0px rgba(34, 60, 80, 0.3);
+  box-shadow: 0px 21px 20px 0px rgba(34, 60, 80, 0.3);
 }
 
 .no-inner-grid {
-	display: block !important;
+  display: block !important;
 }
 
 .steps {
-	background: #424623;
-	height: 80%;
+  background: #424623;
+  height: 80%;
 }
 
 .steps h2 {
-	color: white;
+  color: white;
 }
 
 .steps .carousel-item {
-	background: rgba(27, 29, 9, .7);
-	color: white;
-	text-align: center;
-	padding-bottom: 10em;
+  background: rgba(27, 29, 9, 0.7);
+  color: white;
+  text-align: center;
+  padding-bottom: 10em;
 }
 
 .steps .carousel-item h3 {
-	color: white;
+  color: white;
 }
 
 .steps .carousel-item .number {
-	font-size: 3rem;
-	border: 2px solid white;
-	font-family: 'Oranienbaum';
-	text-align: center;
-	width: 80px;
-	height: 80px;
-	display: inline-block;
-	border-radius: 40px;
-	line-height: 80px;
+  font-size: 3rem;
+  border: 2px solid white;
+  font-family: "Oranienbaum";
+  text-align: center;
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  border-radius: 40px;
+  line-height: 80px;
 }
 
 .carousel-item p {
-	font-size: 1.5rem;
-	line-height: 1.4;
-	text-align: center;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  text-align: center;
 }
 
 .advantages .carousel-item p {
-	color: black;
-}
-
-/* Стили для поисковой формы */
-.search-bar {
-	display: flex;
-	flex-direction: column;
-	gap: 10px;
-}
-
-.search-bar input, .search-bar select {
-	padding: 10px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
+  color: black;
 }
 
 .search-bar button {
-	padding: 10px;
-	background-color: #4caf50;
-	color: white;
-	border: none;
-	border-radius: 5px;
-	cursor: pointer;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .search-bar button:hover {
-	background-color: #45a049;
-}
-
-/* Стили для популярных категорий и ресторанов */
-.popular-categories, .popular-restaurants {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	gap: 10px;
-}
-
-.category-item, .restaurant-item {
-	background-color: white;
-	border-radius: 5px;
-	padding: 15px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	text-align: center;
-}
-
-.category-item img, .restaurant-item img {
-	max-width: 100%;
-	border-radius: 5px;
-}
-
-.category-item h3, .restaurant-item h3 {
-	margin-top: 10px;
-	font-size: 1.1em;
-}
-
-/* Bottom menu styles */
-#bottom-menu {
-	background-color: var(--bottom-menu-color);
-	color: var(--menu-font-color);
-	padding: 1em 2em;
-	position: fixed;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	/*height: 60px;*/
-	align-content: center;
-}
-
-#bottom-menu ul {
-	display: flex;
-	justify-content: space-between;
-	align-content: center;
-	font-size: .7rem;
-}
-
-/* Стили для футера */
-footer {
-	text-align: center;
-	font-size: 0.9em;
-	background-color: #333;
-	color: white;
-	padding: 1em 2em 70px;
+  background-color: #45a049;
 }
 
 /* Адаптивные стили для мобильных устройств */
-@media (max-width: 768px) {
-	.popular-categories, .popular-restaurants {
-		grid-template-columns: 1fr;
-	}
+/*@media (max-width: 768px) {
 
-	.search-bar {
-		flex-direction: column;
+	header nav {
 	}
 
 	header nav ul {
-		flex-direction: column;
-		gap: 5px;
-	}
-	nav ul {
 		display: none;
 		flex-direction: column;
-		background-color: #4caf50;
-		position: absolute;
-		top: 60px;
+		background-color: variables.$toggle-menu-color;
+		top: 0;
 		left: 0;
 		width: 100%;
 		padding: 0;
 	}
 
 	nav ul li {
-		text-align: center;
-		border-bottom: 1px solid #fff;
+
 	}
 
-	/* Показ иконки гамбургера */
+	nav ul li a {
+		text-align: center;
+		display: block;
+		padding-block: 1em;
+		border-bottom: 1px solid red;
+	}
+
+	nav ul li:last-child a {
+		border: none;
+	}
+
 	.menu-toggle {
 		display: block;
 	}
 
-	/* Активное меню */
 	nav ul.active {
 		display: flex;
 	}
-}
+}*/
+
+/*# sourceMappingURL=style.css.map */
