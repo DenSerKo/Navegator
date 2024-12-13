@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block stylesheet %}<link rel="stylesheet" href="{% static 'core/style.css' %}">{% endblock %}
+    <title>{% block title %}NAVEGETOR — Поиск вегетарианских блюд{% endblock %}</title>
+</head>
+<body>
+    <header>
+        {%  block header %}
+            <div class="menu-toggle"><i class="fa-solid fa-bars"></i></div>
+            <nav>
+                <div class="close-menu"><i class="fa-regular fa-circle-xmark" ></i></div>
+                <a href="/">Главная</a>
+                <a href="/search/">Поиск</a>
+                <a href="/dishes/">Блюда</a>
+                <a href="/restaurants/">Рестораны</a>
+                <a href="/blog/">Блог</a>
+                <a href="/blog/">Контакты</a>
+            </nav>
+            <div class="logo">
+                <img src="{% static 'core/img/logo.svg' %}" alt="NAVEGATOR">
+            </div>
+            <div class="profile"><i class="fa-solid fa-user"></i></div>
+        {% endblock %}
+    </header>
+    <main class="content-grid">
+        {% block main %}{% endblock %}
+    </main>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/575d32bfa4.js" crossorigin="anonymous"></script>
+    {% block script %}{% endblock %}
+</body>
+</html>
